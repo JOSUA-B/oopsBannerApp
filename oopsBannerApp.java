@@ -1,33 +1,40 @@
 /**
  * OOPS Banner Application
- * UC6 - Static Functions
+ * UC7 - Character Pattern Class
  *
  * @author Josua
- * @version 1.5
+ * @version 1.6
  */
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class oopsBannerApp {
 
-    public static void main(String[] args) {
+    // Inner class to store character pattern
+    static class CharacterPattern {
+        private char character;
+        private String[] pattern;
 
-        String[] banner = new String[7];
-
-        for (int i = 0; i < 7; i++) {
-            banner[i] = String.join(" ",
-                    getO()[i],
-                    getO()[i],
-                    getP()[i],
-                    getS()[i]);
+        public CharacterPattern(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
         }
 
-        for (String line : banner) {
-            System.out.println(line);
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
         }
     }
 
-    // Pattern for letter O
-    public static String[] getO() {
-        return new String[]{
+    public static void main(String[] args) {
+
+        Map<Character, CharacterPattern> patternMap = new HashMap<>();
+
+        patternMap.put('O', new CharacterPattern('O', new String[]{
                 "*****",
                 "*   *",
                 "*   *",
@@ -35,12 +42,9 @@ public class oopsBannerApp {
                 "*   *",
                 "*   *",
                 "*****"
-        };
-    }
+        }));
 
-    // Pattern for letter P
-    public static String[] getP() {
-        return new String[]{
+        patternMap.put('P', new CharacterPattern('P', new String[]{
                 "*****",
                 "*   *",
                 "*   *",
@@ -48,12 +52,9 @@ public class oopsBannerApp {
                 "*",
                 "*",
                 "*"
-        };
-    }
+        }));
 
-    // Pattern for letter S
-    public static String[] getS() {
-        return new String[]{
+        patternMap.put('S', new CharacterPattern('S', new String[]{
                 "*****",
                 "*",
                 "*",
@@ -61,6 +62,19 @@ public class oopsBannerApp {
                 "    *",
                 "    *",
                 "*****"
-        };
+        }));
+
+        String word = "OOPS";
+
+        for (int row = 0; row < 7; row++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+                line.append(patternMap.get(c).getPattern()[row]).append(" ");
+            }
+
+            System.out.println(line);
+        }
     }
 }
