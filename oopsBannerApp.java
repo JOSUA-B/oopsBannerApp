@@ -1,34 +1,27 @@
 /**
  * OOPS Banner Application
- * UC3 - String Join Implementation
+ * UC4 - Array and Loop Implementation
  * 
  * @author Josua
- * @version 1.2
+ * @version 1.3
  */
 
 public class oopsBannerApp {
 
     public static void main(String[] args) {
 
-        System.out.println(String.join(" ",
-                "*****", "*****", "*****", "*****"));
+        String[] banner = {
+            String.join(" ", "*****", "*****", "*****", "*****"),
+            String.join(" ", "*   *", "*   *", "*   *", "*   *"),
+            String.join(" ", "*   *", "*   *", "*   *", "*   *"),
+            String.join(" ", "*   *", "*****", "*****", "*****"),
+            String.join(" ", "*   *", "*", "*", "*"),
+            String.join(" ", "*   *", "*", "*", "*"),
+            String.join(" ", "*****", "*", "*", "*")
+        };
 
-        System.out.println(String.join(" ",
-                "*   *", "*   *", "*   *", "*   *"));
-
-        System.out.println(String.join(" ",
-                "*   *", "*   *", "*   *", "*   *"));
-
-        System.out.println(String.join(" ",
-                "*   *", "*****", "*****", "*****"));
-
-        System.out.println(String.join(" ",
-                "*   *", "*", "*", "*"));
-
-        System.out.println(String.join(" ",
-                "*   *", "*", "*", "*"));
-
-        System.out.println(String.join(" ",
-                "*****", "*", "*", "*"));
+        for (String line : banner) {
+            System.out.println(line);
+        }
     }
 }
