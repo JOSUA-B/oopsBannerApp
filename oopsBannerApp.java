@@ -1,9 +1,9 @@
 /**
  * OOPS Banner Application
- * UC4 - Array and Loop Implementation
- * 
+ * UC5 - Array Initialization
+ *
  * @author Josua
- * @version 1.3
+ * @version 1.4
  */
 
 public class oopsBannerApp {
@@ -24,4 +24,4 @@ public class oopsBannerApp {
             System.out.println(line);
         }
     }
-}
+} 
